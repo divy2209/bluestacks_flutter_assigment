@@ -19,7 +19,9 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Center(child: Text('wolf')),
+        title: Center(
+          child: Text(GameTv.sharedPreferences!.getString(GameTv.gameName).toString(), style: TextStyle(color: Colors.black87),),
+        ),
         actions: [
           IconButton(
             icon: Icon(FontAwesomeIcons.doorOpen, color: Colors.black87),
@@ -28,7 +30,7 @@ class _HomeState extends State<Home> {
                 loading = true;
               });
               await GameTv.sharedPreferences!.clear();
-              Future.delayed(const Duration(milliseconds: 300), (){
+              Future.delayed(const Duration(milliseconds: 500), (){
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => MyApp())

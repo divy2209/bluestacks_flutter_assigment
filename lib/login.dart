@@ -1,4 +1,5 @@
 import 'package:bluestacks_flutter_assigment/config.dart';
+import 'package:bluestacks_flutter_assigment/local_save.dart';
 import 'package:bluestacks_flutter_assigment/main.dart';
 import 'package:bluestacks_flutter_assigment/text_field.dart';
 import 'package:bluestacks_flutter_assigment/validate.dart';
@@ -74,8 +75,8 @@ class _LoginState extends State<Login> {
                   ),
                   child: TextButton(
                     onPressed: () async {
-                      username = _usernameController.text;
-                      password = _passwordController.text;
+                      username = _usernameController.text.trim();
+                      password = _passwordController.text.trim();
                       String? showError = Validation().loginValidation(user: username, pass: password);
                       if(showError == null){
                         setState(() {
@@ -83,9 +84,10 @@ class _LoginState extends State<Login> {
                         });
                         showError = Validation().login(user: username, pass: password);
                         if(showError == null) {
-                          await GameTv.sharedPreferences!.setString(GameTv.username, username);
-                          await GameTv.sharedPreferences!.setString(GameTv.password, password);
-                          Future.delayed(const Duration(milliseconds: 300), (){
+                          await localDataSaving(username: username, password: password);
+                          //await GameTv.sharedPreferences!.setString(GameTv.username, username);
+                          //await GameTv.sharedPreferences!.setString(GameTv.password, password);
+                          Future.delayed(const Duration(seconds: 2), (){
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(builder: (context) => MyApp())
