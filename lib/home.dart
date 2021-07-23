@@ -1,14 +1,20 @@
 import 'package:bluestacks_flutter_assigment/config.dart';
-import 'package:bluestacks_flutter_assigment/login.dart';
+import 'package:bluestacks_flutter_assigment/loading.dart';
 import 'package:bluestacks_flutter_assigment/main.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
 
   @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  bool loading = false;
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -18,11 +24,16 @@ class Home extends StatelessWidget {
           IconButton(
             icon: Icon(FontAwesomeIcons.doorOpen, color: Colors.black87),
             onPressed: () async {
+              setState(() {
+                loading = true;
+              });
               await GameTv.sharedPreferences!.clear();
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => MyApp()),
-              );
+              Future.delayed(const Duration(milliseconds: 300), (){
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyApp())
+                );
+              });
             },
           )
         ],

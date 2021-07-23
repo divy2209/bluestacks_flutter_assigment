@@ -1,22 +1,30 @@
 import 'package:bluestacks_flutter_assigment/config.dart';
-import 'package:bluestacks_flutter_assigment/home.dart';
 import 'package:bluestacks_flutter_assigment/main.dart';
 import 'package:bluestacks_flutter_assigment/text_field.dart';
 import 'package:bluestacks_flutter_assigment/validate.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Login extends StatelessWidget {
+import 'loading.dart';
+
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   late String username;
   late String password;
 
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+  bool loading = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return GestureDetector(
+    return loading ? Loading() : GestureDetector(
       onTap: (){
         FocusScopeNode currentFocus = FocusScope.of(context);
         if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
@@ -70,14 +78,23 @@ class Login extends StatelessWidget {
                       password = _passwordController.text;
                       String? showError = Validation().loginValidation(user: username, pass: password);
                       if(showError == null){
+                        setState(() {
+                          loading = true;
+                        });
                         showError = Validation().login(user: username, pass: password);
                         if(showError == null) {
                           await GameTv.sharedPreferences!.setString(GameTv.username, username);
                           await GameTv.sharedPreferences!.setString(GameTv.password, password);
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(builder: (context) => MyApp()),
-                          );
+                          Future.delayed(const Duration(milliseconds: 300), (){
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => MyApp())
+                            );
+                          });
+                        } else {
+                          setState(() {
+                            loading = false;
+                          });
                         }
                       }
                       if(showError != null){

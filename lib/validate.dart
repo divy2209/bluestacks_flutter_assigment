@@ -1,3 +1,5 @@
+import 'package:bluestacks_flutter_assigment/credentials.dart';
+
 class Validation {
 
   String? loginValidation({required user, required pass}) {
@@ -10,14 +12,8 @@ class Validation {
     }
   }
   String? login({required user, required pass}) {
-    if(user == '9898989898') {
-      if(pass == 'pass'){
-        return null;
-      } else {
-        return 'Incorrect Password!';
-      }
-    } else if(user == '9876543210') {
-      if(pass == 'password'){
+    if(loginDetails.containsKey(user)){
+      if(loginDetails[user] == pass) {
         return null;
       } else {
         return 'Incorrect Password!';
