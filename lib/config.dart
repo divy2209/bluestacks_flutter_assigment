@@ -1,0 +1,8 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
+class GameTv {
+  static SharedPreferences? sharedPreferences;
+
+  static final String username = 'user';
+  static final String password = 'pass';
+}
