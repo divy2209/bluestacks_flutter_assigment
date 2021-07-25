@@ -6,6 +6,8 @@ class GameTv {
   static final String username = 'user';
   static final String password = 'pass';
 
+  static final String userAPI = 'user api';
+
   static final String userID = 'uid';
   static final String name = 'name';
   static final String gameName = 'game name';
