@@ -1,4 +1,6 @@
 import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
+import 'package:bluestacks_flutter_assigment/widgets/home_widgets/game_profile.dart';
+import 'package:bluestacks_flutter_assigment/widgets/home_widgets/user_profile.dart';
 import 'package:bluestacks_flutter_assigment/widgets/loading.dart';
 import 'package:bluestacks_flutter_assigment/main.dart';
 import 'package:bluestacks_flutter_assigment/services/api_managers/user_api_manager.dart';
@@ -22,6 +24,7 @@ class _HomeState extends State<Home> {
   }
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return FutureBuilder<UserApiModel>(
       future: _userApiModel,
       builder: (context, snap) {
@@ -32,7 +35,7 @@ class _HomeState extends State<Home> {
               backgroundColor: Colors.white,
               elevation: 0,
               title: Center(
-                child: Text(snap.data!.gamename, style: TextStyle(color: Colors.black87),),
+                child: Text(snap.data!.gamename, style: TextStyle(color: Colors.black87, fontSize: 24),),
               ),
               actions: [
                 IconButton(
@@ -51,6 +54,22 @@ class _HomeState extends State<Home> {
                   },
                 )
               ],
+            ),
+            body: Container(
+              padding: EdgeInsets.fromLTRB(20, 15, 20, 0),
+              child: Column(
+                children: [
+                  Container(
+                    height: 100,
+                    child: UserProfile(snap: snap),
+                  ),
+                  SizedBox(height: 30),
+                  Container(
+                    height: 80,
+                    child: GameProfile(snap: snap,),
+                  )
+                ],
+              ),
             ),
           );
         } else {
