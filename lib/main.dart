@@ -1,5 +1,5 @@
-import 'package:bluestacks_flutter_assigment/config.dart';
-import 'package:bluestacks_flutter_assigment/wrapper.dart';
+import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
+import 'package:bluestacks_flutter_assigment/services/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';

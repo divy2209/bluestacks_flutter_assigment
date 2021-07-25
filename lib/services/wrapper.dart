@@ -1,8 +1,8 @@
-import 'package:bluestacks_flutter_assigment/config.dart';
+import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
 import 'package:flutter/material.dart';
 
-import 'home.dart';
-import 'login.dart';
+import '../screens/home.dart';
+import '../screens/login.dart';
 
 class Wrapper extends StatelessWidget {
   @override

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:bluestacks_flutter_assigment/config.dart';
-import 'package:bluestacks_flutter_assigment/user_api_model.dart';
+import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
+import 'package:bluestacks_flutter_assigment/services/api_models/user_api_model.dart';
 import 'package:http/http.dart' as http;
 
 class UserApiManager {

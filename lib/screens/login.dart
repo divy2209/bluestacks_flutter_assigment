@@ -1,12 +1,12 @@
-import 'package:bluestacks_flutter_assigment/config.dart';
-import 'package:bluestacks_flutter_assigment/local_save.dart';
+import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
+import 'package:bluestacks_flutter_assigment/services/local_data/local_save.dart';
 import 'package:bluestacks_flutter_assigment/main.dart';
-import 'package:bluestacks_flutter_assigment/text_field.dart';
-import 'package:bluestacks_flutter_assigment/validate.dart';
+import 'package:bluestacks_flutter_assigment/widgets/text_field.dart';
+import 'package:bluestacks_flutter_assigment/services/login/login_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'loading.dart';
+import '../widgets/loading.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -77,12 +77,12 @@ class _LoginState extends State<Login> {
                     onPressed: () async {
                       username = _usernameController.text.trim();
                       password = _passwordController.text.trim();
-                      String? showError = Validation().loginValidation(user: username, pass: password);
+                      String? showError = LoginService().credentialsValidation(user: username, pass: password);
                       if(showError == null){
                         setState(() {
                           loading = true;
                         });
-                        showError = Validation().login(user: username, pass: password);
+                        showError = LoginService().login(user: username, pass: password);
                         if(showError == null) {
                           await localDataSaving(username: username, password: password);
                           //await GameTv.sharedPreferences!.setString(GameTv.username, username);

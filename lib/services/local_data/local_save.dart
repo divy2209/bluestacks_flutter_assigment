@@ -1,4 +1,4 @@
-import 'package:bluestacks_flutter_assigment/config.dart';
+import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
 
 Future<void> localDataSaving({required username, required password}) async {
   await GameTv.sharedPreferences!.setString(GameTv.username, username);

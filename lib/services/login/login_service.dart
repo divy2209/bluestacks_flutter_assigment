@@ -1,8 +1,8 @@
-import 'package:bluestacks_flutter_assigment/credentials.dart';
+import 'package:bluestacks_flutter_assigment/services/login/credentials.dart';
 
-class Validation {
+class LoginService {
 
-  String? loginValidation({required user, required pass}) {
+  String? credentialsValidation({required user, required pass}) {
     if(user.length<3 || user.length>10) {
       return 'Invalid Username, length should be 3-10!';
     } else if(pass.length<3 || pass.length>10) {
