@@ -16,6 +16,7 @@ class UserProfile extends StatelessWidget {
           radius: size.width * 0.13,
           child: ClipOval(
             child: CachedNetworkImage(
+              progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress,),
               imageUrl: snap.data!.url,
               height: size.width * 0.26,
               width: 120,
