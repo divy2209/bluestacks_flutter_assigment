@@ -19,12 +19,11 @@ class InputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
-        height: size.height * 0.08,
-        width: size.width * 0.8,
+        height: 65,
+        width: 310,
         decoration: BoxDecoration(
           color: Colors.grey[500]!.withOpacity(0.4),
           borderRadius: BorderRadius.circular(16)
