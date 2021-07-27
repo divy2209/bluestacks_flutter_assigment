@@ -1,14 +1,4 @@
-import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
-import 'package:bluestacks_flutter_assigment/services/local_data/local_save.dart';
-import 'package:bluestacks_flutter_assigment/main.dart';
-import 'package:bluestacks_flutter_assigment/widgets/login_widgets/background.dart';
-import 'package:bluestacks_flutter_assigment/widgets/login_widgets/text_field.dart';
-import 'package:bluestacks_flutter_assigment/services/login/login_service.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../widgets/loading.dart';
-
+import 'package:bluestacks_flutter_assigment/services/exports/login_imports.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -25,7 +15,6 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return loading ? Loading() : GestureDetector(
       onTap: (){
         FocusScopeNode currentFocus = FocusScope.of(context);

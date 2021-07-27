@@ -1,18 +1,6 @@
 import 'dart:ui';
 
-import 'package:bluestacks_flutter_assigment/services/api_managers/tournament_api_manager.dart';
-import 'package:bluestacks_flutter_assigment/services/api_models/tournament_api_model.dart';
-import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
-import 'package:bluestacks_flutter_assigment/widgets/home_widgets/game_profile.dart';
-import 'package:bluestacks_flutter_assigment/widgets/home_widgets/user_profile.dart';
-import 'package:bluestacks_flutter_assigment/widgets/loading.dart';
-import 'package:bluestacks_flutter_assigment/main.dart';
-import 'package:bluestacks_flutter_assigment/services/api_managers/user_api_manager.dart';
-import 'package:bluestacks_flutter_assigment/services/api_models/user_api_model.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:bluestacks_flutter_assigment/services/exports/home_imports.dart';
 
 class Home extends StatefulWidget {
 
