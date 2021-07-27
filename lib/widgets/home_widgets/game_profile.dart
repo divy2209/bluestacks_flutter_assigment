@@ -64,7 +64,7 @@ class GameProfile extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text(snap.data != null ? snap.data!.percent : '__' + "%", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
+                Text(snap.data != null ? (snap.data!.percent + '%') : '__%', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
                 Text('Winning', style: TextStyle(color: Colors.white),),
                 Text('percentage', style: TextStyle(color: Colors.white),)
               ],

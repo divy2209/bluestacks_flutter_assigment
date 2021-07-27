@@ -2,24 +2,20 @@ import 'dart:ui';
 
 import 'package:bluestacks_flutter_assigment/services/exports/home_imports.dart';
 
-class Home extends StatefulWidget {
 
+class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   bool loading = false;
-  bool isLoading = false;
-
 
   late Future<UserApiModel> _userApiModel;
-  late Future<TournamentApiModel> _tournamentApiModel;
 
   @override
   void initState() {
     _userApiModel = UserApiManager().getUserDetails();
-    _tournamentApiModel = TournamentApiManager().getTournamentDetails();
     super.initState();
   }
 
@@ -121,79 +117,7 @@ class _HomeState extends State<Home> {
                   SizedBox(height: 20,),
                   Text('Recommended for you', style: TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.w500),),
                   SizedBox(height: 20,),
-                  FutureBuilder<TournamentApiModel>(
-                    future: _tournamentApiModel,
-                    builder: (context, tournament){
-                      if(tournament.hasData){
-                        return Expanded(
-                          child: ListView.separated(
-                            itemCount: tournament.data!.data!.tournaments.length,
-                            itemBuilder: (context, index) {
-                              var game = tournament.data!.data!.tournaments[index];
-                              return Card(
-                                color: Colors.transparent,
-                                elevation: 0,
-                                child: Column(
-                                  children: [
-                                    CachedNetworkImage(
-                                      imageUrl: game.coverUrl,
-                                      progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress, color: Colors.black,),
-                                      imageBuilder: (context, imageProvider) => Container(
-                                        width: 352.7,
-                                        height: 110,
-                                        decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-                                          shape: BoxShape.rectangle,
-                                          image: DecorationImage(
-                                            image: imageProvider, fit: BoxFit.cover
-                                          )
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(15),
-                                      width: 352.7,
-                                      height: 70,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.shade400.withOpacity(0.4),
-                                            blurRadius: 5,
-                                          )
-                                        ]
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Flexible(
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(game.name.trim(), style: TextStyle(fontWeight: FontWeight.w600, height: 1.0), overflow: TextOverflow.ellipsis,),
-                                                Text(game.gameName, style: TextStyle(color: Colors.blue.shade600),)
-                                              ],
-                                            ),
-                                          ),
-                                          Icon(Icons.chevron_right, size: 25)
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              );
-                            }, separatorBuilder: (BuildContext context, int index) {
-                              return Divider(height: 10,color: Colors.transparent,);
-                            },
-                          ),
-                        );
-                      } else {
-                        return Container(child: Center(child: SpinKitCircle(color: Colors.black,)));
-                      }
-                    },
-                  )
+                  TournamentListView(),
                 ],
               ),
             ),

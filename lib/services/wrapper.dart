@@ -1,4 +1,3 @@
-import 'package:bluestacks_flutter_assigment/services/home_provider.dart';
 import 'package:bluestacks_flutter_assigment/services/local_data/config.dart';
 import 'package:flutter/material.dart';
 

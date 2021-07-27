@@ -7,6 +7,4 @@ class GameTv {
   static final String password = 'pass';
 
   static final String userAPI = 'user api';
-
-  static final String cursor = 'cursor';
 }
