@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey.shade50,
         body: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -85,8 +85,6 @@ class _LoginState extends State<Login> {
                         showError = LoginService().login(user: username, pass: password);
                         if(showError == null) {
                           await localDataSaving(username: username, password: password);
-                          //await GameTv.sharedPreferences!.setString(GameTv.username, username);
-                          //await GameTv.sharedPreferences!.setString(GameTv.password, password);
                           Future.delayed(const Duration(seconds: 2), (){
                             Navigator.pushReplacement(
                               context,

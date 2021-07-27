@@ -23,7 +23,7 @@ class GameProfile extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text(snap.data!.played, style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
+                Text(snap.data != null ? snap.data!.played : '__', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
                 Text('Tournaments', style: TextStyle(color: Colors.white),),
                 Text('played', style: TextStyle(color: Colors.white),)
               ],
@@ -44,7 +44,7 @@ class GameProfile extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text(snap.data!.won, style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
+                Text(snap.data != null ? snap.data!.won : '__', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
                 Text('Tournaments', style: TextStyle(color: Colors.white),),
                 Text('won', style: TextStyle(color: Colors.white),)
               ],
@@ -64,7 +64,7 @@ class GameProfile extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text(snap.data!.percent + "%", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
+                Text(snap.data != null ? snap.data!.percent : '__' + "%", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
                 Text('Winning', style: TextStyle(color: Colors.white),),
                 Text('percentage', style: TextStyle(color: Colors.white),)
               ],
