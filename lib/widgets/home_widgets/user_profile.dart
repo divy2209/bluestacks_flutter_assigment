@@ -15,7 +15,7 @@ class UserProfile extends StatelessWidget {
         CircleAvatar(
           backgroundColor: Colors.blueGrey.withOpacity(0.8),
           radius: size.width * 0.13,
-          child: snap.data != null ? ClipOval(
+          child: ClipOval(
             child: CachedNetworkImage(
               progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress, color: Colors.black,),
               imageUrl: snap.data!.url,
@@ -23,7 +23,7 @@ class UserProfile extends StatelessWidget {
               width: 120,
               fit: BoxFit.cover,
             ),
-          ) : SpinKitFadingCircle(color: Colors.white,)
+          )
         ),
         Container(
           padding: EdgeInsets.only(left: 20),
@@ -31,7 +31,7 @@ class UserProfile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                snap.data != null ? snap.data!.name : '',
+                snap.data!.name,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 26,
@@ -49,7 +49,7 @@ class UserProfile extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Text(snap.data !=null ? snap.data!.elo : '         ', style: TextStyle(color: Colors.blueAccent, fontSize: 24, fontWeight: FontWeight.w500),),
+                    Text(snap.data!.elo, style: TextStyle(color: Colors.blueAccent, fontSize: 24, fontWeight: FontWeight.w500),),
                     SizedBox(width: size.width * 0.02,),
                     Text('Elo rating', style: TextStyle(color: Colors.indigoAccent, fontSize: 16),)
                   ],

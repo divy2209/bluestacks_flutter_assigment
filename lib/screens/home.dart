@@ -83,10 +83,6 @@ class _HomeState extends State<Home> {
                       title: Text('Friends'),
                       onTap: () => null,
                     ),
-                    ListTile(
-                      title: Text('Requests'),
-                      onTap: () => null,
-                    ),
                     Divider(height: 5, color: Colors.blueGrey,),
                     ListTile(
                       title: Text('Upcoming tournaments'),
@@ -94,6 +90,10 @@ class _HomeState extends State<Home> {
                     ),
                     ListTile(
                       title: Text('Previous tournaments'),
+                      onTap: () => null,
+                    ),
+                    ListTile(
+                      title: Text('Invites'),
                       onTap: () => null,
                     ),
                     Divider(height: 5, color: Colors.blueGrey,),
@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
                 children: [
                   Container(
                     height: 100,
-                    child: UserProfile(snap: user),
+                    child: user.data != null ? UserProfile(snap: user) : Center(child: SpinKitCircle(color: Colors.black,),),
                   ),
                   SizedBox(height: 30),
                   Container(
