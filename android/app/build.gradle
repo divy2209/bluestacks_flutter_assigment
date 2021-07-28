@@ -26,6 +26,17 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+    buildTypes {
+        getByName("release") {
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules-pro"
+            )
+        }
+    }
+
     compileSdkVersion 30
 
     sourceSets {
