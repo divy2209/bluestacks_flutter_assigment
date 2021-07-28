@@ -1,4 +1,5 @@
 import 'package:bluestacks_flutter_assigment/services/api_models/user_api_model.dart';
+import 'package:bluestacks_flutter_assigment/services/exports/home_imports.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -51,7 +52,7 @@ class UserProfile extends StatelessWidget {
                   children: [
                     Text(snap.data!.elo, style: TextStyle(color: Colors.blueAccent, fontSize: 24, fontWeight: FontWeight.w500),),
                     SizedBox(width: size.width * 0.02,),
-                    Text('Elo rating', style: TextStyle(color: Colors.indigoAccent, fontSize: 16),)
+                    Text('Elo ' + AppLocalizations.of(context)!.rating, style: TextStyle(color: Colors.indigoAccent, fontSize: 16),)
                   ],
                 ),
               )

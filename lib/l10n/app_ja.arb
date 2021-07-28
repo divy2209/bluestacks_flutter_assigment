@@ -1,0 +1,20 @@
+{
+    "language": "日本",
+    "user": "ユーザー名",
+    "password": "パスワード",
+    "login": "ログイン",
+    "greet": "こんにちは、",
+    "gameprofile": "ゲームプロフィール",
+    "friends": "友達",
+    "upcoming": "今後のトーナメント",
+    "previous": "以前のトーナメント",
+    "invites": "招待",
+    "logout": "ログアウト",
+    "rating": "評価",
+    "matches": "トーナメント",
+    "played": "遊んだ",
+    "won": "勝った",
+    "winning": "勝つ",
+    "percent": "パーセンテージ",
+    "recommendation": "あなたにおすすめ"
+}

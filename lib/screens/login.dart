@@ -41,7 +41,6 @@ class _LoginState extends State<Login> {
                           height: 70,
                           width: 310,
                           child: Image.asset('assets/logo.png'),
-                          //color: Colors.grey.shade50.withOpacity(0.2),
                         ),
                         SizedBox(
                           height: 75,
@@ -49,14 +48,14 @@ class _LoginState extends State<Login> {
                         InputField(
                           isObscure: false,
                           icon: FontAwesomeIcons.user,
-                          hintText: 'Username',
+                          hintText: AppLocalizations.of(context)!.user,
                           inputAction: TextInputAction.next,
                           controller: _usernameController,
                         ),
                         InputField(
                           isObscure: true,
                           icon: FontAwesomeIcons.lock,
-                          hintText: 'Password',
+                          hintText: AppLocalizations.of(context)!.password,
                           inputAction: TextInputAction.done,
                           controller: _passwordController,
                         ),
@@ -106,7 +105,7 @@ class _LoginState extends State<Login> {
                               }
                             },
                             child: Text(
-                              'Login',
+                              AppLocalizations.of(context)!.login,
                               style: TextStyle(
                                 fontSize: 22,
                                 color: Colors.white,

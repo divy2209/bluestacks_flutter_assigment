@@ -1,0 +1,74 @@
+{
+    "language": "English",
+    "@language":{
+        "description": "The current Language"
+    },
+    "user": "Username",
+    "@user":{
+        "description": "Username to login"
+    },
+    "password": "Password",
+    "@password":{
+        "description": "Password to login"
+    },
+    "login": "Login",
+    "@login":{
+        "description": "Authenticating for the app"
+    },
+    "greet": "Hello,",
+    "@greet":{
+        "description": "Greeting the user"
+    },
+    "gameprofile": "Game profile",
+    "@gameprofile":{
+        "description": "Game stats"
+    },
+    "friends": "Friends",
+    "@friends":{
+        "description": "Friends on the app"
+    },
+    "upcoming": "Upcoming tournaments",
+    "@upcoming":{
+        "description": "Coming tournaments that you signed up in"
+    },
+    "previous": "Previous tournaments",
+    "@previous":{
+        "description": "Tournaments that you have already played"
+    },
+    "invites": "Invites",
+    "@invites":{
+        "description": "Tournament invites that you have received"
+    },
+    "logout": "Logout",
+    "@logout":{
+        "description": "Exiting user"
+    },
+    "rating": "rating",
+    "@rating":{
+        "description": "Ranking"
+    },
+    "matches": "Tournaments",
+    "@matches":{
+        "description": "Matches"
+    },
+    "played": "played",
+    "@played":{
+        "description": "Played"
+    },
+    "won": "won",
+    "@won":{
+        "description": "Won"
+    },
+    "winning": "Winning",
+    "@winning":{
+        "description": "Winnings"
+    },
+    "percent": "percentage",
+    "@percent":{
+        "description": "Percentage"
+    },
+    "recommendation": "Recommended for you",
+    "@recommendation":{
+        "description": "Recommended"
+    }
+}

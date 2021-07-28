@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final provider = Provider.of<LocaleProvider>(context, listen: false);
     return FutureBuilder<UserApiModel>(
       future: _userApiModel,
       builder: (context, user) {
@@ -54,35 +55,52 @@ class _HomeState extends State<Home> {
                       decoration: BoxDecoration(color: Colors.blueGrey),
                       child: DrawerHeader(
                         child: Center(
-                          child: user.data != null ? Text('Hello, ' + user.data!.gamename, style: TextStyle(fontStyle: FontStyle.italic, fontSize: 20),) : SpinKitThreeBounce(color: Colors.black, size: 15),
+                          child: user.data != null ? Text(AppLocalizations.of(context)!.greet + ' ' + user.data!.gamename, style: TextStyle(fontStyle: FontStyle.italic, fontSize: 20),) : SpinKitThreeBounce(color: Colors.black, size: 15),
                         ),
                       ),
                     ),
                     //Divider(height: 2,),
                     ListTile(
-                      title: Text('Game profile'),
+                      title: Text(AppLocalizations.of(context)!.gameprofile),
                       onTap: () => null,
                     ),
                     ListTile(
-                      title: Text('Friends'),
-                      onTap: () => null,
-                    ),
-                    Divider(height: 5, color: Colors.blueGrey,),
-                    ListTile(
-                      title: Text('Upcoming tournaments'),
-                      onTap: () => null,
-                    ),
-                    ListTile(
-                      title: Text('Previous tournaments'),
-                      onTap: () => null,
-                    ),
-                    ListTile(
-                      title: Text('Invites'),
+                      title: Text(AppLocalizations.of(context)!.friends),
                       onTap: () => null,
                     ),
                     Divider(height: 5, color: Colors.blueGrey,),
                     ListTile(
-                      title: Text('Logout'),
+                      title: Text(AppLocalizations.of(context)!.upcoming),
+                      onTap: () => null,
+                    ),
+                    ListTile(
+                      title: Text(AppLocalizations.of(context)!.previous),
+                      onTap: () => null,
+                    ),
+                    ListTile(
+                      title: Text(AppLocalizations.of(context)!.invites),
+                      onTap: () => null,
+                    ),
+                    Divider(height: 5, color: Colors.blueGrey,),
+                    ExpansionTile(
+                      title: Text(AppLocalizations.of(context)!.language),
+                      children: [
+                        ListTile(
+                          title: Text('English', style: TextStyle(fontWeight: FontWeight.w300),),
+                          onTap: (){
+                            provider.setLocale(L10n.all[0]);
+                          },
+                        ),
+                        ListTile(
+                          title: Text('日本', style: TextStyle(fontWeight: FontWeight.w300),),
+                          onTap: (){
+                            provider.setLocale(L10n.all[1]);
+                          },
+                        )
+                      ],
+                    ),
+                    ListTile(
+                      title: Text(AppLocalizations.of(context)!.logout),
                       onTap: () async {
                         setState(() {
                           loading = true;
@@ -111,11 +129,11 @@ class _HomeState extends State<Home> {
                   ),
                   SizedBox(height: 30),
                   Container(
-                    height: 80,
+                    height: 90,
                     child: GameProfile(snap: user),
                   ),
                   SizedBox(height: 20,),
-                  Text('Recommended for you', style: TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.w500),),
+                  Text(AppLocalizations.of(context)!.recommendation, style: TextStyle(color: Colors.black, fontSize: 22, fontWeight: FontWeight.w500),),
                   SizedBox(height: 20,),
                   TournamentListView(),
                 ],

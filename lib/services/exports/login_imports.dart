@@ -6,3 +6,5 @@ export 'package:bluestacks_flutter_assigment/services/local_data/local_save.dart
 export 'package:bluestacks_flutter_assigment/services/login/login_service.dart';
 export 'package:bluestacks_flutter_assigment/widgets/login_widgets/background.dart';
 export 'package:bluestacks_flutter_assigment/widgets/login_widgets/text_field.dart';
+
+export 'package:flutter_gen/gen_l10n/app_localization.dart';

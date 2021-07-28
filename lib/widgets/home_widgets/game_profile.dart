@@ -1,4 +1,5 @@
 import 'package:bluestacks_flutter_assigment/services/api_models/user_api_model.dart';
+import 'package:bluestacks_flutter_assigment/services/exports/home_imports.dart';
 import 'package:flutter/material.dart';
 
 class GameProfile extends StatelessWidget {
@@ -9,11 +10,10 @@ class GameProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
           child: Container(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(13),
             decoration: BoxDecoration(
               color: Colors.yellow,
               borderRadius: const BorderRadius.only(topLeft: Radius.circular(30), bottomLeft: Radius.circular(30)),
@@ -24,8 +24,8 @@ class GameProfile extends StatelessWidget {
             child: Column(
               children: [
                 Text(snap.data != null ? snap.data!.played : '__', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
-                Text('Tournaments', style: TextStyle(color: Colors.white),),
-                Text('played', style: TextStyle(color: Colors.white),)
+                Text(AppLocalizations.of(context)!.matches, style: TextStyle(color: Colors.white, height: 1),),
+                Text(AppLocalizations.of(context)!.played, style: TextStyle(color: Colors.white, height: 1),)
               ],
             ),
           ),
@@ -33,7 +33,7 @@ class GameProfile extends StatelessWidget {
         SizedBox(width: 2,),
         Expanded(
           child: Container(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(13),
             decoration: BoxDecoration(
               color: Colors.deepPurpleAccent,
               gradient: LinearGradient(
@@ -45,8 +45,8 @@ class GameProfile extends StatelessWidget {
             child: Column(
               children: [
                 Text(snap.data != null ? snap.data!.won : '__', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
-                Text('Tournaments', style: TextStyle(color: Colors.white),),
-                Text('won', style: TextStyle(color: Colors.white),)
+                Text(AppLocalizations.of(context)!.matches, style: TextStyle(color: Colors.white, height: 1),),
+                Text(AppLocalizations.of(context)!.won, style: TextStyle(color: Colors.white, height: 1),)
               ],
             ),
           ),
@@ -54,7 +54,7 @@ class GameProfile extends StatelessWidget {
         SizedBox(width: 2,),
         Expanded(
           child: Container(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(13),
             decoration: BoxDecoration(
               color: Colors.red,
               borderRadius: const BorderRadius.only(topRight: Radius.circular(30), bottomRight: Radius.circular(30)),
@@ -65,8 +65,8 @@ class GameProfile extends StatelessWidget {
             child: Column(
               children: [
                 Text(snap.data != null ? (snap.data!.percent + '%') : '__%', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),),
-                Text('Winning', style: TextStyle(color: Colors.white),),
-                Text('percentage', style: TextStyle(color: Colors.white),)
+                Text(AppLocalizations.of(context)!.winning, style: TextStyle(color: Colors.white, height: 1),),
+                Text(AppLocalizations.of(context)!.percent, style: TextStyle(color: Colors.white, height: 1),)
               ],
             ),
           ),
