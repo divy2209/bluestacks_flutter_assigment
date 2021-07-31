@@ -123,10 +123,10 @@ class _TournamentListViewState extends State<TournamentListView> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(game.name.trim(), style: TextStyle(
-                                    fontWeight: FontWeight.w600, height: 1.0),
+                                    fontWeight: FontWeight.w600, height: 1.0, fontSize: 14),
                                   overflow: TextOverflow.ellipsis,),
                                 Text(game.gameName,
-                                  style: TextStyle(color: Colors.blue.shade600),)
+                                  style: TextStyle(color: Colors.blue.shade600, fontSize: 14),)
                               ],
                             ),
                           ),

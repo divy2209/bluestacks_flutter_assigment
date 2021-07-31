@@ -10,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 import 'l10n/l10n.dart';
 
-Future <void> main() async{
+Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GameTv.sharedPreferences = await SharedPreferences.getInstance();
 
@@ -29,26 +29,38 @@ Future <void> main() async{
 class MyApp extends StatelessWidget {
 
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-    create: (context) => LocaleProvider(),
-    builder: (context, child) {
-      final provider = Provider.of<LocaleProvider>(context);
-      return MaterialApp(
-          title: 'game.tv',
-          theme: ThemeData(
-            visualDensity: VisualDensity.adaptivePlatformDensity
-          ),
-          locale: provider.locale,
-          supportedLocales: L10n.all,
-          localizationsDelegates: [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-          ],
-          home: Wrapper(),
-          debugShowCheckedModeBanner: false,
-        );
-    }
-  );
+  Widget build(BuildContext context) =>
+      ChangeNotifierProvider(
+          create: (context) => LocaleProvider(),
+          builder: (context, child) {
+            final provider = Provider.of<LocaleProvider>(context);
+            return MaterialApp(
+              title: 'game.tv',
+              locale: provider.locale,
+              supportedLocales: L10n.all,
+              localizationsDelegates: [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+              ],
+              home: Wrapper(),
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                  visualDensity: VisualDensity.adaptivePlatformDensity
+              ),
+              builder: (context, navigator) {
+                var lang = Localizations.localeOf(context).languageCode;
+                return Theme(
+                  data: ThemeData(
+                    textTheme: Theme.of(context).textTheme.apply(
+                      fontSizeDelta: lang == 'ja' ? -3 : 0
+                    ),
+                  ),
+                  child: navigator!,
+                );
+              },
+            );
+          }
+      );
 }

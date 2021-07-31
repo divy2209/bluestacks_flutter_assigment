@@ -61,38 +61,38 @@ class _HomeState extends State<Home> {
                     ),
                     //Divider(height: 2,),
                     ListTile(
-                      title: Text(AppLocalizations.of(context)!.gameprofile),
+                      title: Text(AppLocalizations.of(context)!.gameprofile, style: TextStyle(fontSize: 14),),
                       onTap: () => null,
                     ),
                     ListTile(
-                      title: Text(AppLocalizations.of(context)!.friends),
+                      title: Text(AppLocalizations.of(context)!.friends, style: TextStyle(fontSize: 14)),
                       onTap: () => null,
                     ),
                     Divider(height: 5, color: Colors.blueGrey,),
                     ListTile(
-                      title: Text(AppLocalizations.of(context)!.upcoming),
+                      title: Text(AppLocalizations.of(context)!.upcoming, style: TextStyle(fontSize: 14)),
                       onTap: () => null,
                     ),
                     ListTile(
-                      title: Text(AppLocalizations.of(context)!.previous),
+                      title: Text(AppLocalizations.of(context)!.previous, style: TextStyle(fontSize: 14)),
                       onTap: () => null,
                     ),
                     ListTile(
-                      title: Text(AppLocalizations.of(context)!.invites),
+                      title: Text(AppLocalizations.of(context)!.invites, style: TextStyle(fontSize: 14)),
                       onTap: () => null,
                     ),
                     Divider(height: 5, color: Colors.blueGrey,),
                     ExpansionTile(
-                      title: Text(AppLocalizations.of(context)!.language),
+                      title: Text(AppLocalizations.of(context)!.language, style: TextStyle(fontSize: 14)),
                       children: [
                         ListTile(
-                          title: Text('English', style: TextStyle(fontWeight: FontWeight.w300),),
+                          title: Text('English', style: TextStyle(fontWeight: FontWeight.w300, fontSize: 14),),
                           onTap: (){
                             provider.setLocale(L10n.all[0]);
                           },
                         ),
                         ListTile(
-                          title: Text('日本', style: TextStyle(fontWeight: FontWeight.w300),),
+                          title: Text('日本', style: TextStyle(fontWeight: FontWeight.w300, fontSize: 14),),
                           onTap: (){
                             provider.setLocale(L10n.all[1]);
                           },
@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                     ListTile(
-                      title: Text(AppLocalizations.of(context)!.logout),
+                      title: Text(AppLocalizations.of(context)!.logout, style: TextStyle(fontSize: 14),),
                       onTap: () async {
                         setState(() {
                           loading = true;
@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
                   ),
                   SizedBox(height: 30),
                   Container(
-                    height: 90,
+                    height: 82,
                     child: GameProfile(snap: user),
                   ),
                   SizedBox(height: 20,),
